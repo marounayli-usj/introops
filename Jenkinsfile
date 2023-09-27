@@ -32,12 +32,6 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            // Additional steps if you want to capture and archive the pytest results, e.g., JUnit format
-        }
-    }
 }
 
 def updateGitHubStatus(String state, String description) {
