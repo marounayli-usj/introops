@@ -11,7 +11,7 @@ pipeline {
         stage('Run Pytest') {
             steps {
                 script {
-                    // Use bat for Windows commands
+                    bat 'pip install pytest'
                     bat 'pytest -v'
                 }
             }
