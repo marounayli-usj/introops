@@ -1,19 +1,22 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.9'  // Use the Python 3.9 official image as a base
+            args '-u root:root'  // Run as root to avoid permission issues
+        }
+    }
 
     stages {
-        stage('Hello') {
+        stage('Setup') {
             steps {
-                echo 'Hello, World!'
+                // Install pytest inside the container
+                sh 'pip install pytest'
             }
         }
         
         stage('Run Pytest') {
             steps {
-                script {
-                    bat 'pip install pytest'
-                    bat 'pytest -v'
-                }
+                sh 'pytest -v'
             }
         }
     }
