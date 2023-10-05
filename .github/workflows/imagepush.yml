@@ -28,4 +28,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: marounayliUSJ/cicd:latest
+        tags: marounayliusj/cicd:latest
